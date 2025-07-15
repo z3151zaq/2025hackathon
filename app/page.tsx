@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { ElementButton } from "./components/ui/ElementButton";
 
 export default function Home() {
   return (
