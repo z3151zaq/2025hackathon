@@ -1,0 +1,8 @@
+---
+alwaysApply: true
+---
+# Testing Best Practices
+
+- All core logic must be covered by unit tests; critical paths require integration tests.
+- Test cases should cover normal, exceptional, and boundary conditions.
+- Test code should be separated from business code and use clear naming.

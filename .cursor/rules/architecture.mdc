@@ -1,0 +1,9 @@
+---
+alwaysApply: true
+---
+# Architecture and Code Organization
+
+- Follow SOLID, DRY, and KISS principles.
+- Code should be modular, maintainable, and testable.
+- Avoid deep nesting and side effects; maintain single responsibility.
+- Directory structure should clearly reflect business and technical layers.

@@ -1,0 +1,18 @@
+---
+alwaysApply: true
+---
+# Commenting Best Practices
+
+- All functions, classes, and public methods must include structured documentation comments.
+- Use JSDoc for JavaScript/TypeScript, Javadoc for Java, and XML documentation for C#.
+- Comments should be concise and clearly describe the purpose, parameters, return values, and exceptions.
+- Example (JSDoc):
+  /**
+   * Calculates the sum of two numbers.
+   * @param {number} a - The first number.
+   * @param {number} b - The second number.
+   * @returns {number} The sum of a and b.
+   * @example
+   * add(1, 2); // 3
+   */
+  function add(a, b) { return a + b; }

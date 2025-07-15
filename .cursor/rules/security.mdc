@@ -1,0 +1,10 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Security Best Practices
+
+- Strictly validate all external input to prevent injection attacks.
+- Store and transmit sensitive information securely using encryption.
+- Avoid hardcoding secrets, passwords, or other sensitive data in the codebase.

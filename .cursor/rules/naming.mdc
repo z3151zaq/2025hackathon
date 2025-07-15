@@ -1,0 +1,8 @@
+---
+alwaysApply: true
+---
+# Naming Conventions
+
+- Use descriptive and meaningful names for variables, functions, and classes.
+- Use camelCase for variables and functions, PascalCase for classes and components, and UPPER_SNAKE_CASE for constants.
+- File and directory names should reflect their content and avoid ambiguity.

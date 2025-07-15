@@ -1,0 +1,9 @@
+---
+alwaysApply: true
+---
+# Error Handling Best Practices
+
+- Always validate all input and output.
+- Handle exceptions gracefully using try/catch blocks where needed.
+- Error messages should be clear and traceable, without exposing sensitive information.
+- Log exceptions and report them when necessary.
