@@ -98,70 +98,122 @@ const UsersList: React.FC = () => {
   };
 
   return (
-    <div style={{ maxWidth: 600, margin: "40px auto", padding: 24, background: "#fff", borderRadius: 8, boxShadow: "0 2px 8px #eee" }}>
-      <h2 style={{ textAlign: "center" }}>学生管理</h2>
-      <form onSubmit={handleSubmit} style={{ marginBottom: 24 }}>
-        <div style={{ display: "flex", gap: 12, marginBottom: 8 }}>
-          <input
-            type="text"
-            placeholder="姓名"
-            value={form.name}
-            onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
-            required
-            style={{ flex: 1, padding: 8 }}
-          />
-          <input
-            type="email"
-            placeholder="邮箱"
-            value={form.email}
-            onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
-            required
-            style={{ flex: 1, padding: 8 }}
-          />
-        </div>
-        <div style={{ display: "flex", gap: 12 }}>
-          <button type="submit" disabled={loading} style={{ padding: "8px 16px" }}>
-            {editingId ? "更新学生" : "新增学生"}
-          </button>
-          {editingId && (
-            <button type="button" onClick={handleCancelEdit} style={{ padding: "8px 16px" }}>
-              取消编辑
-            </button>
+    <div className="container mx-auto max-w-4xl p-6">
+      <div className="card bg-base-100 shadow-xl">
+        <div className="card-body">
+          <h2 className="card-title text-2xl justify-center mb-6">学生管理</h2>
+          
+          <form onSubmit={handleSubmit} className="mb-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">姓名</span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="请输入姓名"
+                  value={form.name}
+                  onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
+                  required
+                  className="input input-bordered w-full"
+                />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">邮箱</span>
+                </label>
+                <input
+                  type="email"
+                  placeholder="请输入邮箱"
+                  value={form.email}
+                  onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
+                  required
+                  className="input input-bordered w-full"
+                />
+              </div>
+            </div>
+            
+            <div className="flex gap-3">
+              <button 
+                type="submit" 
+                disabled={loading} 
+                className={`btn text-white bg-green-500 hover:bg-green-600 border-green-500 hover:border-green-600 ${loading ? 'loading' : ''}`}
+              >
+                {editingId ? "更新学生" : "新增学生"}
+              </button>
+              {editingId && (
+                <button 
+                  type="button" 
+                  onClick={handleCancelEdit} 
+                  className="btn btn-ghost"
+                >
+                  取消编辑
+                </button>
+              )}
+            </div>
+          </form>
+          
+          {error && (
+            <div className="alert alert-error mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span>{error}</span>
+            </div>
           )}
+          
+          <div className="overflow-x-auto">
+            <table className="table table-zebra w-full">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>姓名</th>
+                  <th>邮箱</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody>
+                {users.length === 0 ? (
+                  <tr>
+                    <td colSpan={4} className="text-center py-8">
+                      <div className="flex flex-col items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-base-300 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z" />
+                        </svg>
+                        <span className="text-base-content/60">暂无学生</span>
+                      </div>
+                    </td>
+                  </tr>
+                ) : (
+                  users.map(user => (
+                    <tr key={user.id}>
+                      <td>{user.id}</td>
+                      <td>{user.name}</td>
+                      <td>{user.email}</td>
+                      <td>
+                        <div className="flex gap-2">
+                          <button 
+                            onClick={() => handleEdit(user)} 
+                            className="btn btn-sm text-blue-700 bg-blue-200/70 border-blue-300 hover:bg-blue-300/80"
+                          >
+                            编辑
+                          </button>
+                          <button 
+                            onClick={() => handleDelete(user.id)} 
+                            className="btn btn-sm text-red-700 bg-red-200/70 border-red-300 hover:bg-red-300/80"
+                          >
+                            删除
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  ))
+                )}
+              </tbody>
+            </table>
+          </div>
         </div>
-      </form>
-      {error && <div style={{ color: "red", marginBottom: 12 }}>{error}</div>}
-      <table style={{ width: "100%", borderCollapse: "collapse" }}>
-        <thead>
-          <tr style={{ background: "#f5f5f5" }}>
-            <th style={{ padding: 8, border: "1px solid #eee" }}>ID</th>
-            <th style={{ padding: 8, border: "1px solid #eee" }}>姓名</th>
-            <th style={{ padding: 8, border: "1px solid #eee" }}>邮箱</th>
-            <th style={{ padding: 8, border: "1px solid #eee" }}>操作</th>
-          </tr>
-        </thead>
-        <tbody>
-          {users.length === 0 ? (
-            <tr>
-              <td colSpan={4} style={{ textAlign: "center", padding: 16 }}>
-                暂无学生
-              </td>
-            </tr>
-          ) : (
-            users.map(user => (
-              <tr key={user.id}>
-                <td style={{ padding: 8, border: "1px solid #eee" }}>{user.id}</td>
-                <td style={{ padding: 8, border: "1px solid #eee" }}>{user.name}</td>
-                <td style={{ padding: 8, border: "1px solid #eee" }}>{user.email}</td>
-                <td style={{ padding: 8, border: "1px solid #eee" }}>
-                  <button onClick={() => handleEdit(user)} style={{ marginRight: 8 }}>编辑</button>
-                  <button onClick={() => handleDelete(user.id)} style={{ color: "red" }}>删除</button>
-                </td>
-              </tr>
-            ))
-          )}
-        </tbody>
-      </table>
+      </div>
     </div>
   );
 };
