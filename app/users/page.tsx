@@ -137,7 +137,7 @@ const UsersList: React.FC = () => {
               <button 
                 type="submit" 
                 disabled={loading} 
-                className={`btn text-white bg-green-500 hover:bg-green-600 border-green-500 hover:border-green-600 ${loading ? 'loading' : ''}`}
+                className={`btn text-white bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 border-0 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 ${loading ? 'loading' : ''}`}
               >
                 {editingId ? "更新学生" : "新增学生"}
               </button>
@@ -145,7 +145,7 @@ const UsersList: React.FC = () => {
                 <button 
                   type="button" 
                   onClick={handleCancelEdit} 
-                  className="btn btn-ghost"
+                  className="btn btn-ghost rounded-xl hover:bg-gray-100 transition-all duration-200"
                 >
                   取消编辑
                 </button>
@@ -194,13 +194,13 @@ const UsersList: React.FC = () => {
                         <div className="flex gap-2">
                           <button 
                             onClick={() => handleEdit(user)} 
-                            className="btn btn-sm text-blue-700 bg-blue-200/70 border-blue-300 hover:bg-blue-300/80"
+                            className="btn btn-sm text-blue-700 bg-gradient-to-r from-blue-200/70 to-blue-300/70 border-blue-300 hover:from-blue-300/80 hover:to-blue-400/80 rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-200"
                           >
                             编辑
                           </button>
                           <button 
                             onClick={() => handleDelete(user.id)} 
-                            className="btn btn-sm text-red-700 bg-red-200/70 border-red-300 hover:bg-red-300/80"
+                            className="btn btn-sm text-red-700 bg-gradient-to-r from-red-200/70 to-red-300/70 border-red-300 hover:from-red-300/80 hover:to-red-400/80 rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-200"
                           >
                             删除
                           </button>
