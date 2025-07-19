@@ -18,3 +18,10 @@ model User {
   name  String
   email String  
 }
+
+model History {
+  id      String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  records Json   @db.JsonB
+
+  @@map("history")
+}
