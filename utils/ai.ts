@@ -2,7 +2,7 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 
 /**
  * Sends a request to the AI model and returns the response
- * @param {string} input - The user's input/question
+ * @param {string} input - The user's input/question (prompt from frontend)
  * @returns {Promise<string>} The AI's response
  */
 export const askFromAI = async (input: string): Promise<string> => {
@@ -11,11 +11,8 @@ export const askFromAI = async (input: string): Promise<string> => {
     model: process.env.AI_MODEL_TEXT || "gemini-1.5-flash"
   });
 
-  // Build prompt
-  const fullPrompt = input.trim();
-
   try {
-    const result = await model.generateContent(fullPrompt);
+    const result = await model.generateContent(input);
     const text = (await result.response.text()) || "No response text";
     return text;
   } catch (error) {
