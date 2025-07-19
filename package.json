@@ -10,6 +10,7 @@
     "test": "jest --config jest.config.js --runInBand"
   },
   "dependencies": {
+    "@google/generative-ai": "^0.24.1",
     "@prisma/client": "^6.11.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
