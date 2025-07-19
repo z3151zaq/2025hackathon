@@ -9,9 +9,10 @@ export default function HomePage() {
       <div className="relative z-10">
         <h1 className="text-5xl font-bold mb-6 text-green-300">reinvent-cli</h1>
         <div className="mockup-code bg-zinc-800 text-green-300 mb-6 border border-green-600 rounded-xl">
-          <pre data-prefix=">">
-            <code>reinvent git &quot;initialize&quot;</code>
-          </pre>
+          <pre data-prefix=">"><code>reinvent + ask + natural language</code></pre>
+          <pre data-prefix=">"><code>reinvent + CMD</code></pre>
+          <pre data-prefix=">"><code>reinvent + CMD + natural language</code></pre>
+          <pre data-prefix=">"><code>reinvent + config --language</code></pre>
         </div>
         <p className="mb-10 text-green-500">
           ⤷ Enter natural language commands to generate CLI combinations!
