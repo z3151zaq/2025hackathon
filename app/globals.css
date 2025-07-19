@@ -124,3 +124,30 @@
     @apply font-sans;
   }
 }
+
+/* 流星雨星星样式 */
+.star {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0.2;
+  border: 2px solid transparent;
+  border-bottom: 4px solid #fff;
+  animation: flash 2s infinite linear;
+  z-index: 0;
+}
+.star::before {
+  content: "";
+  position: absolute;
+  left: -2px;
+  top: 4px;
+  border: 2px solid transparent;
+  border-top: 4px solid #fff;
+}
+@keyframes flash {
+  20% { opacity: 0.2; }
+  40% { opacity: 0.5; }
+  60% { opacity: 1; }
+  80% { opacity: 0.5; }
+  100% { opacity: 0.2; }
+}
