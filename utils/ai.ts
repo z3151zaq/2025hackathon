@@ -12,13 +12,7 @@ export const askFromAI = async (input: string): Promise<string> => {
   });
 
   // Build prompt
-  const fullPrompt = `You are a command line assistant for Node.js developers.
-
-Current user requirement: ${JSON.stringify(input)}
-Your job is to convert this requirement into valid **Node.js related terminal commands**.
-Output the commands in plain text only.
-**Do not output any explanation, description, or code blocks.**
-Each command must be on its own line.`.trim();
+  const fullPrompt = input.trim();
 
   try {
     const result = await model.generateContent(fullPrompt);
