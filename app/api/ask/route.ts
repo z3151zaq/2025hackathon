@@ -22,7 +22,6 @@ export async function POST(request: NextRequest) {
 
     const body = await request.json();
     const { input, uuid } = body;
-
     if (!input || typeof input !== "string") {
       return NextResponse.json(
         { error: "Input is required and must be a string" },
