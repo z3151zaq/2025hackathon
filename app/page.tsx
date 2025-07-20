@@ -29,7 +29,8 @@ export default function HomePage() {
           <h2 className="text-2xl font-bold text-green-400 mb-4 text-left">
             🎬 Reinvent-CLI Demo Showcase
           </h2>
-          <div className="flex flex-col items-start gap-4">
+
+          <div className="flex flex-col gap-10">
             {[
               {
                 src: "/1.mp4",
@@ -44,20 +45,33 @@ export default function HomePage() {
                 title: "Demo 3. Reinvent a commandline on your computer and use it in your own language",
               },
             ].map((demo, idx) => (
-              <div key={idx} className="overflow-hidden w-full max-w-4xl">
-                <h3 className="text-green-300 text-sm font-medium mb-2">{demo.title}</h3>
-                <video
-                  src={demo.src}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="rounded-xl shadow-lg border border-green-600 transform scale-90 origin-top-left inline-block"
-                />
+              <div
+                key={idx}
+                className="flex items-start gap-4 w-full max-w-5xl mx-auto"
+              >
+                {/* 标题容器：字体稍大 */}
+                <div className="w-[280px] text-left break-words">
+                  <h3 className="text-green-300 text-base font-medium leading-snug">
+                    {demo.title}
+                  </h3>
+                </div>
+
+                {/* 视频区域 */}
+                <div className="flex-1">
+                  <video
+                    src={demo.src}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="rounded-xl shadow-lg border border-green-600 transform scale-90 origin-top-left"
+                  />
+                </div>
               </div>
             ))}
           </div>
         </div>
+
 
 
       </div>
