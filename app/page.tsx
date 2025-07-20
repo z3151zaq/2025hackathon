@@ -33,10 +33,16 @@ export default function HomePage() {
         <div className="mockup-code bg-zinc-800 text-green-300 mb-6 border border-green-600 rounded-xl text-sm leading-snug">
           <pre><code>install: npm i reinvent-cli -g</code></pre>
           <pre><code>usage: reinvent [ ask | config | CMD ] [ options ]</code></pre>
+          <pre style={{marginTop:10}}><code>       // say what you want and get cmds</code></pre>
           <pre><code>       reinvent ask &lt;natural language&gt;</code></pre>
-          <pre><code>       reinvent CMD</code></pre>
+          <pre style={{marginTop:10}}><code>       // use a command in natural language</code></pre>
           <pre><code>       reinvent CMD &lt;natural language&gt;</code></pre>
-          <pre><code>       reinvent config --language</code></pre>
+          <pre style={{marginTop:10}}><code>       // hijack a command</code></pre>
+          <pre><code>       reinvent CMD</code></pre>
+          <pre style={{marginTop:10}}><code>       // and use it in natural language: CMD &lt;natural language&gt;</code></pre>
+          <pre><code>       CMD &lt;natural language&gt;</code></pre>
+          
+          {/* <pre><code>       reinvent config --language</code></pre> */}
         </div>
 
         <p className="mb-10 text-green-500">
